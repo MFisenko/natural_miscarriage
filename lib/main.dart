@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:natural_miscarriage/pages/alterative_methods.dart';
+import 'package:natural_miscarriage/pages/during_miscarriage_and_aftercare.dart';
+import 'package:natural_miscarriage/pages/method_page.dart';
+import 'package:natural_miscarriage/pages/natural_diet_suggestions.dart';
 import 'firebase_options.dart';
 import 'pages/main_menu.dart';
 import 'pages/immediate_use_methods.dart';
@@ -18,7 +22,11 @@ void main() async {
     routes: {
       '/': (context) => const MainMenu(),
       '/second': (context) => const ImmediateUseMethods(),
-      '/third': (context) => const MyChecklist(),
+      '/third': (context) => const AlternativeOptions(),
+      '/forth': (context) => const DuringMiscarriageAndAftercare(),
+      '/fifth': (context) => const NaturalDietSuggestions(),
+      '/sixth': (context) => const MyChecklist(),
+      '/seventh': (context) => const MethodPage()
     },
   ));
 }

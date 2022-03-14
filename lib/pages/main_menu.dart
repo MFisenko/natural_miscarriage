@@ -72,7 +72,7 @@ class MainMenu extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(25)),
                               border:
                                   Border.all(color: Colors.black, width: 3)),
-                          child: const Text('Excercise'),
+                          child: const Text('Natural diet suggestions'),
                           padding: const EdgeInsets.all(50),
                         ),
                       ),
@@ -85,7 +85,7 @@ class MainMenu extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(25)),
                               border:
                                   Border.all(color: Colors.black, width: 3)),
-                          child: const Text('Excercise'),
+                          child: const Text('Pharmaceuticals'),
                           padding: const EdgeInsets.all(50),
                         ),
                       ),
@@ -99,7 +99,7 @@ class MainMenu extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(25)),
                               border:
                                   Border.all(color: Colors.black, width: 3)),
-                          child: const Text('Excercise'),
+                          child: const Text('During miscarriage and aftercare'),
                           padding: const EdgeInsets.all(50),
                         ),
                       ),
@@ -112,7 +112,7 @@ class MainMenu extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(25)),
                               border:
                                   Border.all(color: Colors.black, width: 3)),
-                          child: const Text('Excercise'),
+                          child: const Text('Alternative options'),
                           padding: const EdgeInsets.all(50),
                         ),
                       ),
