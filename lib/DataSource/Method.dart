@@ -1,8 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart' as http;
 
 Future<Method> fetchMethod() async {
@@ -21,8 +18,8 @@ Future<Method> fetchMethod() async {
 }
 
 class Method {
-  final String content;
-  final String title;
+  final Content content;
+  final Title title;
 
   const Method({
     required this.content,
@@ -32,57 +29,50 @@ class Method {
 
   factory Method.fromJson(Map<String, dynamic> json) {
     return Method(
-      content: json["content"].toString(),
-      title: json["title"].toString()
+      content: Content.fromJson(json["content"]),
+      title: Title.fromJson(json["title"]),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    "title": title.toJson(),
+    "content": content.toJson()
+  };
+
 }
 
-void main() => runApp(const MyApp());
+class Content{
+  final String rendered;
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const Content({
+    required this.rendered
+});
 
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  late Future<Method> futureMethod;
-
-  @override
-  void initState() {
-    super.initState();
-    futureMethod = fetchMethod();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fetch Data Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: FutureBuilder<Method>(future: futureMethod, builder: (context, snapshot){return Text(snapshot.data!.title);},),
-        ),
-        body: Center(
-          child: FutureBuilder<Method>(
-            future: futureMethod,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Html(data: snapshot.data!.content);
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
-      ),
+  factory Content.fromJson(Map<String, dynamic> json) => Content(
+        rendered: json["rendered"]
     );
-  }
+
+  Map<String, dynamic> toJson() => {
+    "rendered": rendered,
+  };
+
 }
+
+class Title{
+  final String rendered;
+
+  const Title({
+    required this.rendered
+});
+
+  factory Title.fromJson(Map<String, dynamic> json) => Title(
+      rendered: json["rendered"]
+  );
+
+  Map<String, dynamic> toJson() => {
+    "rendered": rendered,
+  };
+
+}
+
+
