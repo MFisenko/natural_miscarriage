@@ -32,7 +32,13 @@ class _MyAppState extends State<MethodPage> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: FutureBuilder<Method>(future: futureMethod, builder: (context, snapshot){return Text(snapshot.data!.title.rendered,);},),
+          title: FutureBuilder<Method>(future: futureMethod, builder: (context, snapshot){
+            if (snapshot.hasData) { return Text(snapshot.data!.title.rendered); }
+
+            else if (snapshot.hasError) { return Text('${snapshot.error}'); }
+
+
+            return const CircularProgressIndicator();},),
         ),
         body: DisplayedMethod(futureMethod: futureMethod),
       ),

@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'items.dart' as items;
 
 Future<Method> fetchMethod() async {
   final response = await http
-      .get(Uri.parse('https://www.naturalmiscarriage.org/wp-json/wp/v2/pages/1043'));
+      .get(Uri.parse(items.methodSource['method-prayer']));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
